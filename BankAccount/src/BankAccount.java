@@ -1,15 +1,15 @@
 public class BankAccount {
 	public static int nextAccountID = 1000;
 	private int accountNum;
-	private double accountBalance;
+	protected double accountBalance;
 
 	public BankAccount() {
 		this.accountNum = nextAccountID;
 		nextAccountID += 5;
 	}
 
-	public double withdraw(double amountToAdd) {
-		setAccountBalance(accountBalance -= amountToAdd);
+	public double withdraw(double amountToRemove) {
+		setAccountBalance(accountBalance -= amountToRemove);
 		return accountBalance;
 	}
 
@@ -40,6 +40,11 @@ public class BankAccount {
 
 	public void setAccountBalance(double accountBalance) {
 		this.accountBalance = accountBalance;
+	}
+	
+	public enum accountType
+	{
+		PERSONAL, BUSINESSS
 	}
 
 }
