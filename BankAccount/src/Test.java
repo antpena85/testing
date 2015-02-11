@@ -25,10 +25,10 @@ public class Test {
 		account.setAccountNum();
 		account.setAccountBalance(500.32);
 		account.withdraw(5.05);
-		System.out.printf("Account ID is %d with a current balance of $%.2f and currently has %d checks\n", 
-				account.getAccountNum(),account.getAccountBalance(),account.getChecks());
-		System.out.println(account.nextCheck());
-		System.out.println(account.nextCheck(99));
+//		System.out.printf("Account ID is %d with a current balance of $%.2f and currently has %d checks\n", 
+//				account.getAccountNum(),account.getAccountBalance(),account.getChecks());
+//		System.out.println(account.nextCheck());
+//		System.out.println(account.nextCheck(99));
 				
 	}
 

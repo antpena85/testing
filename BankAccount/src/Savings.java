@@ -5,7 +5,7 @@ public class Savings extends BankAccount
 	
 	public Savings(int checks) 
 	{
-		setChecks(checks);	//TODO: change to APR	
+//		setChecks(checks);	//TODO: change to APR	
 	}
 
 //	public int getChecks() 
