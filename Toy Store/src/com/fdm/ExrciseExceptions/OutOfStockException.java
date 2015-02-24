@@ -1,5 +1,7 @@
 package com.fdm.ExrciseExceptions;
 
+
+
 public class OutOfStockException extends Exception {
 
 	/**
@@ -19,7 +21,7 @@ public class OutOfStockException extends Exception {
 
 	public OutOfStockException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public OutOfStockException(Throwable cause) {

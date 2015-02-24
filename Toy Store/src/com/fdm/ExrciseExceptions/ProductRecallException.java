@@ -1,11 +1,15 @@
 package com.fdm.ExrciseExceptions;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+
 public class ProductRecallException extends OutOfStockException{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	static Logger log = Logger.getLogger(OutOfStockException.class);
 
 	public ProductRecallException() {
 		super();
@@ -19,7 +23,8 @@ public class ProductRecallException extends OutOfStockException{
 
 	public ProductRecallException(String message) {
 		super(message);
-		// TODO Auto-generated constructor stub
+		PropertyConfigurator.configure("log4j.properties");
+		log.error(message);
 	}
 
 	public ProductRecallException(Throwable cause) {
