@@ -21,9 +21,9 @@ public class CommandPatternTest
 //		controller = ComfortSelector.getComfortLevel(LEVEL.ECONOMIC);
 		controller = ComfortSelector.getComfortLevel(LEVEL.SPORT);
 		SuspensionCommand setSuspension = new SuspensionCommand(controller);
-//		controller = ComfortSelector.getComfortLevel(LEVEL.ECONOMIC);
+		controller = ComfortSelector.getComfortLevel(LEVEL.ECONOMIC);
 		HorsepowerCommand setHorsepower = new HorsepowerCommand(controller);
-//		controller = ComfortSelector.getComfortLevel(LEVEL.CRUISE);
+		controller = ComfortSelector.getComfortLevel(LEVEL.CRUISE);
 		TransmissionCommand setTransmission = new TransmissionCommand(controller);
 		Select select = new Select();
 		select.setCommand(setSuspension);

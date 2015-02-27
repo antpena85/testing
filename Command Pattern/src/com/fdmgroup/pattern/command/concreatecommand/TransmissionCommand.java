@@ -5,7 +5,7 @@ import com.fdmgroup.pattern.command.reciever.ComfortController;
 
 public class TransmissionCommand implements Command
 {
-ComfortController controller;
+ public ComfortController controller;
 	
 	public TransmissionCommand(ComfortController controller)
 	{
