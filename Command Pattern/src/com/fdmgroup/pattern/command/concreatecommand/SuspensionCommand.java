@@ -1,9 +1,9 @@
-package com.fdmgroup.pattern.command.reciever;
+package com.fdmgroup.pattern.command.concreatecommand;
 
-import com.fdmgroup.pattern.command.clients.ComfortController;
-import com.fdmgroup.pattern.command.commands.SendCommand;
+import com.fdmgroup.pattern.command.commands.Command;
+import com.fdmgroup.pattern.command.reciever.ComfortController;
 
-public class SuspensionCommand implements SendCommand
+public class SuspensionCommand implements Command
 
 {
 	ComfortController controller;

@@ -3,21 +3,21 @@ package com.fdmgroup.pattern.command.invoker;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fdmgroup.pattern.command.commands.SendCommand;
+import com.fdmgroup.pattern.command.commands.Command;
 
 public class Select
 {
-	private List<SendCommand> sendList = new ArrayList<SendCommand>();
+	private List<Command> commandList = new ArrayList<Command>();
 	
-	public void takeCommand(SendCommand command)
+	public void setCommand(Command command)
 	{
-		sendList.add(command);
+		commandList.add(command);
 	}
-	public void placeCommand()
+	public void getCommand()
 	{
-		for(SendCommand command: sendList)
+		for(Command command: commandList)
 			command.execute();
-		sendList.clear();
+		commandList.clear();
 	}
 	
 }

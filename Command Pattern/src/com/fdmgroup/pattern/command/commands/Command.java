@@ -1,6 +1,6 @@
 package com.fdmgroup.pattern.command.commands;
 
-public interface SendCommand
+public interface Command
 {
 	void execute();
 	void undo();

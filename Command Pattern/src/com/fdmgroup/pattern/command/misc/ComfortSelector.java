@@ -1,4 +1,9 @@
-package com.fdmgroup.pattern.command.clients;
+package com.fdmgroup.pattern.command.misc;
+
+import com.fdmgroup.pattern.command.clients.Cruiser;
+import com.fdmgroup.pattern.command.clients.Economy;
+import com.fdmgroup.pattern.command.clients.Sport;
+import com.fdmgroup.pattern.command.reciever.ComfortController;
 
 public class ComfortSelector
 {

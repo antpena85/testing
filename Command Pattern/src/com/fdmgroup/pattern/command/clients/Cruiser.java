@@ -1,5 +1,7 @@
 package com.fdmgroup.pattern.command.clients;
 
+import com.fdmgroup.pattern.command.reciever.ComfortController;
+
 public class Cruiser implements ComfortController
 {
 

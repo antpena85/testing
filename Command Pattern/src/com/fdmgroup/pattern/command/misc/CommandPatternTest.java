@@ -1,10 +1,11 @@
-package com.fdmgroup.pattern.command.clients;
+package com.fdmgroup.pattern.command.misc;
 
-import com.fdmgroup.pattern.command.clients.ComfortSelector.LEVEL;
+import com.fdmgroup.pattern.command.concreatecommand.HorsepowerCommand;
+import com.fdmgroup.pattern.command.concreatecommand.SuspensionCommand;
+import com.fdmgroup.pattern.command.concreatecommand.TransmissionCommand;
 import com.fdmgroup.pattern.command.invoker.Select;
-import com.fdmgroup.pattern.command.reciever.HorsepowerCommand;
-import com.fdmgroup.pattern.command.reciever.SuspensionCommand;
-import com.fdmgroup.pattern.command.reciever.TransmissionCommand;
+import com.fdmgroup.pattern.command.misc.ComfortSelector.LEVEL;
+import com.fdmgroup.pattern.command.reciever.ComfortController;
 
 
 public class CommandPatternTest
@@ -25,11 +26,11 @@ public class CommandPatternTest
 //		controller = ComfortSelector.getComfortLevel(LEVEL.CRUISE);
 		TransmissionCommand setTransmission = new TransmissionCommand(controller);
 		Select select = new Select();
-		select.takeCommand(setSuspension);
-		select.takeCommand(setHorsepower);
-		select.takeCommand(setTransmission);
+		select.setCommand(setSuspension);
+		select.setCommand(setHorsepower);
+		select.setCommand(setTransmission);
 		
-		select.placeCommand();
+		select.getCommand();
 
 		
 	}

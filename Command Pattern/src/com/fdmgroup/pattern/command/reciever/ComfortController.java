@@ -1,4 +1,4 @@
-package com.fdmgroup.pattern.command.clients;
+package com.fdmgroup.pattern.command.reciever;
 
 public interface ComfortController
 {
