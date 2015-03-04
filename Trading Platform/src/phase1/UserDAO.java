@@ -7,6 +7,10 @@ public class UserDAO implements IStorage<UserDTO>
 {
 	Set<UserDTO> UserList = new HashSet<UserDTO>();
 
+	public void setUserList(Set<UserDTO> userList) {
+		UserList = userList;
+	}
+
 	@Override
 	public IStorable create(UserDTO user) throws UserNullException
 	{
