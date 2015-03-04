@@ -1,21 +1,17 @@
 package test.phase1;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.when;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import phase1.IStorable;
 import phase1.UserDAO;
 import phase1.UserDTO;
 import phase1.UserNotFoundException;
@@ -23,7 +19,7 @@ import phase1.UserNullException;
 
 public class UserDAOtest {
 	private UserDAO userDAO;
-	private Collection<UserDTO> UserList;
+	private Set<UserDTO> UserList;
 	@Mock private UserDTO user1,user2,user3;
 
 	@Before
@@ -56,6 +52,7 @@ public class UserDAOtest {
 		UserList.add(user1);
 		UserList.add(user2);
 		UserList.add(user3);
+		userDAO.setUserList(UserList);
 	}
 
 	@Test(expected=UserNullException.class)
@@ -67,7 +64,7 @@ public class UserDAOtest {
 	@Test
 	public void testCreateAddsUserToRam() throws UserNullException
 	{
-		IStorable user = userDAO.create(user1);
+		UserDTO user = (UserDTO) userDAO.create(user1);
 		assertTrue(user.equals(user1));
 	}
 	
@@ -79,8 +76,8 @@ public class UserDAOtest {
 	@Test
 	public void testReadUserReturnsUser() throws UserNotFoundException
 	{
-		UserDTO userResult = (UserDTO) userDAO.read(1002);
-		assertTrue(userResult.getUsername().equals("airplanes"));
+		UserDTO userResult = (UserDTO)userDAO.read(1002);
+		assertTrue(userResult.getPassword().equals("airplanes"));
 	}
 }
 
