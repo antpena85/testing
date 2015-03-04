@@ -8,10 +8,14 @@ public class UserDAO implements IStorage<UserDTO>
 	Set<UserDTO> UserList = new HashSet<UserDTO>();
 
 	@Override
-	public IStorable create(UserDTO user) 
+	public IStorable create(UserDTO user) throws UserNullException
 	{
-		UserList.add(user);
-		return user;
+		if(user!=null)
+		{
+			UserList.add(user);
+			return user;
+		}
+		throw new UserNullException("Attempted to create user of Null value");
 	}
 
 	@Override
