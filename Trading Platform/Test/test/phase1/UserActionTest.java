@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import Exceptions.UserCredentialException;
 import Exceptions.UserNotFoundException;
 import phase1.UserActions;
 import phase1.UserDAO;
@@ -65,11 +66,11 @@ public class UserActionTest {
 //	@Test(expected=UserNotFoundException.class)
 //	public void testLoginNoUserFoundException() throws UserNotFoundException
 //	{
-//		useractions.login("apena", "password");
+//		useractions.login("aujuyh", "rfju");
 //	}
 
 	@Test
-	public void testLoginAuthenticatesUser() throws UserNotFoundException
+	public void testLoginAuthenticatesUser() throws UserNotFoundException, UserCredentialException
 	{
 		assertTrue(useractions.login("apena", "password").equals(user1));
 	}

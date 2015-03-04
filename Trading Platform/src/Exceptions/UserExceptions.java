@@ -1,28 +1,28 @@
 package Exceptions;
 
-public class UserNullException extends UserExceptions {
+public class UserExceptions extends Exception {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public UserNullException() {
+	public UserExceptions() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserNullException(String message, Throwable cause) {
+	public UserExceptions(String message, Throwable cause) {
 		super(message, cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserNullException(String message) {
+	public UserExceptions(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserNullException(Throwable cause) {
+	public UserExceptions(Throwable cause) {
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
