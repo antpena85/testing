@@ -3,11 +3,16 @@ package phase1;
 import java.util.HashSet;
 import java.util.Set;
 
-public class UserDAO implements IStorage<UserDTO> 
+import Exceptions.UserNotFoundException;
+import Exceptions.UserNullException;
+
+public class UserDAO implements IStorage<UserDTO, Integer> 
 {
 	Set<UserDTO> UserList = new HashSet<UserDTO>();
 
-	public void setUserList(Set<UserDTO> userList) {
+	public void setUserList(Set<UserDTO> userList) //TODO: need to remove for final version
+	{
+		UserList.clear();
 		UserList = userList;
 	}
 
@@ -23,7 +28,7 @@ public class UserDAO implements IStorage<UserDTO>
 	}
 
 	@Override
-	public IStorable read(int ID) throws UserNotFoundException
+	public UserDTO read(Integer ID) throws UserNotFoundException
 	{
 		for(UserDTO user: UserList)
 		{
@@ -31,6 +36,16 @@ public class UserDAO implements IStorage<UserDTO>
 				return user;
 		}
 		throw new UserNotFoundException("ID:"+ID+" was not found in our data base.");
+		
+	}
+	public UserDTO read(String username) throws UserNotFoundException
+	{
+		for(UserDTO user: UserList)
+		{
+			if(user.getUsername() == username)
+				return user;
+		}
+		throw new UserNotFoundException("User:"+username+" was not found in our data base.");
 		
 	}
 

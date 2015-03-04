@@ -1,4 +1,4 @@
-package phase1;
+package Exceptions;
 
 public class UserNotFoundException extends Exception {
 
