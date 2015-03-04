@@ -12,12 +12,13 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import Exceptions.UserNotFoundException;
-import Exceptions.UserNullException;
+import phase1.UserActions;
 import phase1.UserDAO;
 import phase1.UserDTO;
 
-public class UserDAOtest {
-	private UserDAO userDAO;
+public class UserActionTest {
+	UserActions useractions;
+	UserDAO userDAO;
 	private Set<UserDTO> UserList;
 	@Mock private UserDTO user1,user2,user3, user4;
 
@@ -26,6 +27,7 @@ public class UserDAOtest {
 	{
 		MockitoAnnotations.initMocks(this);
 		
+		useractions = new UserActions();
 		userDAO = new UserDAO();
 		UserList = new HashSet<UserDTO>();
 		
@@ -60,48 +62,15 @@ public class UserDAOtest {
 		userDAO.setUserList(UserList);
 	}
 
-	@Test(expected=UserNullException.class)
-	public void testCreateUserReturnsNull() throws UserNullException
-	{
-		userDAO.create(null);
-	}
-	
-	@Test
-	public void testCreateAddsUserToRam() throws UserNullException
-	{
-		UserDTO user = (UserDTO) userDAO.create(user1);
-		assertTrue(user.equals(user1));
-	}
-	
-	@Test(expected=UserNotFoundException.class)
-	public void testReadUserNotFound() throws UserNotFoundException
-	{
-		userDAO.read(1004);
-	}
-	@Test
-	public void testReadUserReturnsUser() throws UserNotFoundException
-	{
-		UserDTO userResult = (UserDTO)userDAO.read(1002);
-		assertTrue(userResult.getPassword().equals("airplanes"));
-		assertTrue(userResult.getFirstName().equals("Zvi"));
-		assertTrue(userResult.getLastName().equals("Lam"));
-		assertTrue(userResult.getUsername().equals("zlam"));
-	}
-//	@Test
-//	public void testUpdatesUserToRam() throws UserNullException, UserNotFoundException
+//	@Test(expected=UserNotFoundException.class)
+//	public void testLoginNoUserFoundException() throws UserNotFoundException
 //	{
-//		userDAO.update(user2, user4);
-//		userDAO.setUserList(UserList);
-//		assertTrue(UserList.contains(user4));
+//		useractions.login("apena", "password");
 //	}
-//	@Test(expected=UserNullException.class)
-//	public void testUserRemovedFromRam() throws UserNotFoundException
-//	{
-//		userDAO.delete(1001);
-//		userDAO.read(1001);
-//	}
+
+	@Test
+	public void testLoginAuthenticatesUser() throws UserNotFoundException
+	{
+		assertTrue(useractions.login("apena", "password").equals(user1));
+	}
 }
-
-
-
-
