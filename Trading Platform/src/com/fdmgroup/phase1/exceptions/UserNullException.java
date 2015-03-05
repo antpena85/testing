@@ -1,28 +1,28 @@
-package Exceptions;
+package com.fdmgroup.phase1.exceptions;
 
-public class UserNotFoundException extends UserExceptions {
+public class UserNullException extends UserExceptions {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public UserNotFoundException() {
+	public UserNullException() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserNotFoundException(String message, Throwable cause) {
+	public UserNullException(String message, Throwable cause) {
 		super(message, cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserNotFoundException(String message) {
+	public UserNullException(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserNotFoundException(Throwable cause) {
+	public UserNullException(Throwable cause) {
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}

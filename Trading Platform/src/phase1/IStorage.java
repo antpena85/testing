@@ -1,7 +1,7 @@
 package phase1;
 
-import Exceptions.UserNotFoundException;
-import Exceptions.UserNullException;
+import com.fdmgroup.phase1.exceptions.UserNotFoundException;
+import com.fdmgroup.phase1.exceptions.UserNullException;
 
 public interface IStorage <T, A>
 {

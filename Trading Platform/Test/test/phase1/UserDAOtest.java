@@ -3,7 +3,7 @@ package test.phase1;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.junit.Before;
@@ -11,14 +11,14 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import Exceptions.UserNotFoundException;
-import Exceptions.UserNullException;
-import phase1.UserDAO;
+import com.fdmgroup.phase1.daos.UserDAO;
+import com.fdmgroup.phase1.exceptions.UserNotFoundException;
+import com.fdmgroup.phase1.exceptions.UserNullException;
+
 import phase1.UserDTO;
 
 public class UserDAOtest {
 	private UserDAO userDAO;
-	private Set<UserDTO> UserList;
 	@Mock private UserDTO user1,user2,user3, user4;
 
 	@Before
@@ -27,7 +27,6 @@ public class UserDAOtest {
 		MockitoAnnotations.initMocks(this);
 		
 		userDAO = new UserDAO();
-		UserList = new HashSet<UserDTO>();
 		
 
 		when(user1.getUserID()).thenReturn(1001);
@@ -54,10 +53,7 @@ public class UserDAOtest {
 		when(user4.getPassword()).thenReturn("password");
 		when(user4.getUsername()).thenReturn("firstlast");
 
-		UserList.add(user1);
-		UserList.add(user2);
-		UserList.add(user3);
-		userDAO.setUserList(UserList);
+		
 	}
 
 	@Test(expected=UserNullException.class)
@@ -87,13 +83,12 @@ public class UserDAOtest {
 		assertTrue(userResult.getLastName().equals("Lam"));
 		assertTrue(userResult.getUsername().equals("zlam"));
 	}
-//	@Test
-//	public void testUpdatesUserToRam() throws UserNullException, UserNotFoundException
-//	{
-//		userDAO.update(user2, user4);
-//		userDAO.setUserList(UserList);
-//		assertTrue(UserList.contains(user4));
-//	}
+	@Test
+	public void testUpdatesUserToRam() throws UserNullException, UserNotFoundException
+	{
+		userDAO.update(user2, user4);
+//		assertTrue((user4));
+	}
 //	@Test(expected=UserNullException.class)
 //	public void testUserRemovedFromRam() throws UserNotFoundException
 //	{
