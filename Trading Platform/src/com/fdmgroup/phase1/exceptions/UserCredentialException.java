@@ -1,4 +1,4 @@
-package Exceptions;
+package com.fdmgroup.phase1.exceptions;
 
 import org.omg.CORBA.UserException;
 

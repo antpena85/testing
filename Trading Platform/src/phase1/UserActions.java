@@ -1,27 +1,16 @@
 package phase1;
 
-import Exceptions.UserCredentialException;
-import Exceptions.UserNotFoundException;
+import com.fdmgroup.phase1.daos.UserDAO;
+import com.fdmgroup.phase1.exceptions.UserCredentialException;
+import com.fdmgroup.phase1.exceptions.UserNotFoundException;
 
 public class UserActions 
 {
-	UserDAO user;
+	UserDAO user = new UserDAO();
 	
-	public UserDTO login(String username, String password) throws UserNotFoundException, UserCredentialException
+	public UserDTO login(String username, String password) throws UserCredentialException, UserNotFoundException
 	{
-//		try 
-//		{
-//			if ((user.read(username))!= null)	 
-//			{
-//				if(user.read(username).getPassword().equals(password))
-//					return user.read(username);
-//			}
-//		}
-//		catch (UserNotFoundException e) 
-//		{
-//			e.printStackTrace();
-//		}
-		if(user.read(username)!=null)
+		if((user.read(username))!=null)
 		{
 			if (user.read(username).getPassword().equals(password))
 				return user.read(username);

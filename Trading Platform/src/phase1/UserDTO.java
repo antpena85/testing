@@ -13,6 +13,47 @@ public class UserDTO implements IStorable
 		this.firstName = email;
 	}
 	
+//	Setters and Getters
+//------------------------------------------------------------------------------
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String email) {
+		this.firstName = email;
+	}
+
+	public int getUserID() {
+		return userID;
+	}
+
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	
 //	Override hashCode() and equals() methods
 //	----------------------------------------------------------------------------
 @Override
@@ -56,47 +97,5 @@ public class UserDTO implements IStorable
 		} else if (!username.equals(other.username))
 			return false;
 		return true;
-	}
-
-
-	//	Setters and Getters
-//------------------------------------------------------------------------------
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String email) {
-		this.firstName = email;
-	}
-
-	public int getUserID() {
-		return userID;
-	}
-
-	public void setUserID(int userID) {
-		this.userID = userID;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 }

@@ -11,18 +11,18 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import Exceptions.UserCredentialException;
-import Exceptions.UserNotFoundException;
 import phase1.UserActions;
-import phase1.UserDAO;
 import phase1.UserDTO;
+
+import com.fdmgroup.phase1.daos.UserDAO;
+import com.fdmgroup.phase1.exceptions.UserCredentialException;
+import com.fdmgroup.phase1.exceptions.UserNotFoundException;
 
 public class UserActionTest {
 	UserActions useractions;
 	UserDAO userDAO;
-	private Set<UserDTO> UserList;
 	@Mock private UserDTO user1,user2,user3, user4;
-
+	
 	@Before
 	public void setUp() throws Exception 
 	{
@@ -30,7 +30,6 @@ public class UserActionTest {
 		
 		useractions = new UserActions();
 		userDAO = new UserDAO();
-		UserList = new HashSet<UserDTO>();
 		
 
 		when(user1.getUserID()).thenReturn(1001);
@@ -56,18 +55,18 @@ public class UserActionTest {
 		when(user4.getLastName()).thenReturn("last");
 		when(user4.getPassword()).thenReturn("password");
 		when(user4.getUsername()).thenReturn("firstlast");
-
-		UserList.add(user1);
-		UserList.add(user2);
-		UserList.add(user3);
-		userDAO.setUserList(UserList);
+		
+		userDAO.create(user1);
+		userDAO.create(user2);
+		userDAO.create(user3);
+		userDAO.create(user4);
 	}
 
-//	@Test(expected=UserNotFoundException.class)
-//	public void testLoginNoUserFoundException() throws UserNotFoundException
-//	{
-//		useractions.login("aujuyh", "rfju");
-//	}
+	@Test(expected=UserNotFoundException.class)
+	public void testLoginNoUserFoundException() throws UserCredentialException, UserNotFoundException
+	{
+		useractions.login("aujuyh", "rfju");
+	}
 
 	@Test
 	public void testLoginAuthenticatesUser() throws UserNotFoundException, UserCredentialException

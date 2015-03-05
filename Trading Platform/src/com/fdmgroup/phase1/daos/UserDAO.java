@@ -1,16 +1,20 @@
-package phase1;
+package com.fdmgroup.phase1.daos;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
-import Exceptions.UserNotFoundException;
-import Exceptions.UserNullException;
+import phase1.IStorable;
+import phase1.IStorage;
+import phase1.UserDTO;
+
+import com.fdmgroup.phase1.exceptions.UserNotFoundException;
+import com.fdmgroup.phase1.exceptions.UserNullException;
 
 public class UserDAO implements IStorage<UserDTO, Integer> 
 {
-	Set<UserDTO> UserList = new HashSet<UserDTO>();
+	List<UserDTO> UserList = new ArrayList<UserDTO>();
 
-	public void setUserList(Set<UserDTO> userList) //TODO: need to remove for final version
+	public void setUserList(List<UserDTO> userList) //TODO: need to remove for final version
 	{
 		UserList.clear();
 		UserList = userList;
@@ -42,10 +46,10 @@ public class UserDAO implements IStorage<UserDTO, Integer>
 	{
 		for(UserDTO user: UserList)
 		{
-			if(user.getUsername() == username)
+			if(user.getUsername().equals(username))
 				return user;
 		}
-		throw new UserNotFoundException("User:"+username+" was not found in our data base.");
+		throw new UserNotFoundException("User: "+username+" was not found in our data base.");
 		
 	}
 
