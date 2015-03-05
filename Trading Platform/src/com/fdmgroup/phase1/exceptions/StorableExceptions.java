@@ -1,28 +1,28 @@
 package com.fdmgroup.phase1.exceptions;
 
-public class UserExceptions extends Exception {
+public class StorableExceptions extends Exception {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public UserExceptions() {
+	public StorableExceptions() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserExceptions(String message, Throwable cause) {
+	public StorableExceptions(String message, Throwable cause) {
 		super(message, cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserExceptions(String message) {
+	public StorableExceptions(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserExceptions(Throwable cause) {
+	public StorableExceptions(Throwable cause) {
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
